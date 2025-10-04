@@ -2484,6 +2484,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.AspNetCore.OpenApi >= 6.*",
+      "Microsoft.EntityFrameworkCore >= 6.*",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.*",
       "Microsoft.EntityFrameworkCore.Tools >= 6.*",
       "Swashbuckle.AspNetCore >= 6.4.0"
@@ -2539,6 +2540,10 @@
         "targetAlias": "net8.0",
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": {
+            "target": "Package",
+            "version": "[6.*, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[6.*, )"
           },
