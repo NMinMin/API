@@ -7,7 +7,7 @@ create database QuanLySinhVien
 on primary
 (
     name = QuanLySinhVien_data,
-    filename = 'E:\VoNhacPhuoc_BE\DataBase\QuanLySinhVien.mdf',
+    filename = 'E:\BackEnd\DB\QuanLySinhVien.mdf',
     size = 50MB,
     filegrowth = 10MB,
     maxsize = 200MB
@@ -15,7 +15,7 @@ on primary
 log on
 (
     name = QuanLySinhVien_log,
-    filename = 'E:\VoNhacPhuoc_BE\DataBase\QuanLySinhVien.ldf',
+    filename = 'E:\BackEnd\DB\QuanLySinhVien.ldf',
     size = 10MB,
     filegrowth = 5MB,
     maxsize = unlimited
