@@ -2551,32 +2551,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\fw622\\.nuget\\packages\\": {},
-    "D:\\Visual Studio 2022\\NuGetPackages": {}
+    "C:\\Users\\Nhac Phuoc\\.nuget\\packages\\": {},
+    "C:\\Program Files\\DevExpress 25.1\\Components\\Offline Packages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\BackEnd\\API\\API.csproj",
+      "projectUniqueName": "E:\\VoNhacPhuoc_BE\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "E:\\BackEnd\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\fw622\\.nuget\\packages\\",
-      "outputPath": "E:\\BackEnd\\API\\obj\\",
+      "projectPath": "E:\\VoNhacPhuoc_BE\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\Nhac Phuoc\\.nuget\\packages\\",
+      "outputPath": "E:\\VoNhacPhuoc_BE\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Visual Studio 2022\\NuGetPackages"
+        "C:\\Program Files\\DevExpress 25.1\\Components\\Offline Packages"
       ],
       "configFilePaths": [
-        "C:\\Users\\fw622\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Nhac Phuoc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 25.1.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files\\DevExpress 25.1\\Components\\System\\Components\\Packages": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.devexpress.com/J3pTx9Ks9IDj4nZnRUF4ShZTeEejb1Kf7DbCkwhuHWCJJKyYMs/api/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
@@ -2593,8 +2593,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -2646,7 +2645,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.414/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
