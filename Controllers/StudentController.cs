@@ -45,7 +45,7 @@ namespace API.Controllers
     }
 
     [HttpPost]
-    public IActionResult Create(StudentModel model)
+    public IActionResult Create(CreateStudentDto model)
     {
       var student = _mapper.Map<Student>(model);//Sử dụng AutoMapper để map từ model sang Student
 
@@ -71,7 +71,7 @@ namespace API.Controllers
         name = student.name,
         dateofbirth = student.dateofbirth.ToString("dd-MM-yyyy"),
         class_id = student.class_id,
-        class_name = student._class.name
+        class_name = student._class?.name
       };
       var result = _mapper.Map<StudentDto>(result1);//Sử dụng AutoMapper để map từ result1 sang StudentDto
 
