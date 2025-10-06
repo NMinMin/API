@@ -60,20 +60,14 @@ namespace API.Controllers
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
-      var student = _context.Students.Find(id);
+      var student = _context.Students
+        .Include(s => s._class)   // nạp thêm thông tin class
+        .FirstOrDefault(s => s.id == id);
       if (student == null)
       {
         return NotFound();
       }
-      var result1 = new
-      {
-        id = student.id,
-        name = student.name,
-        dateofbirth = student.dateofbirth.ToString("dd-MM-yyyy"),
-        class_id = student.class_id,
-        class_name = student._class?.name
-      };
-      var result = _mapper.Map<StudentDto>(result1);//Sử dụng AutoMapper để map từ result1 sang StudentDto
+      var result = _mapper.Map<StudentDto>(student);//Sử dụng AutoMapper để map từ result1 sang StudentDto
 
       return Ok(result);
     }
