@@ -12,9 +12,7 @@ namespace API.Mappings
             // Map Student qua StudentDto
             CreateMap<Student, StudentDto>()
                 .ForMember(dest => dest.class_name,// để mapp thuộc tính class_name
-                           opt => opt.MapFrom(src => src._class.name))// ánh xạ class_name từ src qua dest _class.name
-                .ForMember(dest => dest.dateofbirth,
-                           opt => opt.MapFrom(src => src.dateofbirth.ToString("dd/MM/yyyy")));//nếu dateofbirth có giá trị thì lấy giá trị đó, ngược lại lấy DateTime.MinValue
+                           opt => opt.MapFrom(src => src._class.name));// ánh xạ class_name từ src qua dest _class.name
              CreateMap<StudentModel, Student>();
 
             CreateMap<CreateStudentDto, Student>();//Khi tạo Student thì tự đổng chuyển thành Student và gửi vào DB
