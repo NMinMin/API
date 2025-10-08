@@ -90,7 +90,7 @@ namespace API.Controllers
       student.dateofbirth = model.dateofbirth;
 
       _context.SaveChanges();
-      return NoContent();
+      return Ok(new { message = "Cập nhật thành công" });
     }
 
     [HttpDelete("{id}")]
@@ -104,7 +104,7 @@ namespace API.Controllers
 
       _context.Students.Remove(user);
       _context.SaveChanges();
-      return NoContent();
+      return Ok(new { message = "Xóa thành công" });
     }
   }
 }
