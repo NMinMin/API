@@ -73,17 +73,22 @@ namespace API.Controllers
     }
 
     [HttpPut("{id}")]
-    public IActionResult Update(int id, Student model)
+    public IActionResult Update(int id, CreateStudentDto model)
     {
-      var user = _context.Students.Find(id);
-      if (user == null)
+      var student = _context.Students.Find(id);
+      if (student == null)
       {
         return NotFound();
       }
-      user.name = model.name;
-      user.dateofbirth = model.dateofbirth;
-      user.class_id = model.class_id;
-      user._class = model._class;
+      if (model.class_id != student.class_id && model.class_id == 0) //nếu class_id thay đổi và class_id mới không hợp lệ
+        model.class_id = student.class_id; //giữ nguyên class_id cũ
+      else //nếu class_id thay đổi và class_id mới hợp lệ
+        student.class_id = model.class_id; //cập nhật class_id mới
+      if (model.dateofbirth == DateTime.MinValue)//nếu dateofbirth thay đổi và dateofbirth mới không hợp lệ
+        model.dateofbirth = student.dateofbirth;//giữ nguyên dateofbirth cũ
+      student.name = model.name;
+      student.dateofbirth = model.dateofbirth;
+
       _context.SaveChanges();
       return NoContent();
     }
