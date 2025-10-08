@@ -48,7 +48,7 @@ namespace API.Controllers
     }
 
     [HttpPost]
-    public IActionResult Create(ClassModel model)
+    public IActionResult Create(CreateClassDto model)
     {
 
       var newClass = new Class
@@ -82,7 +82,7 @@ namespace API.Controllers
     }
 
     [HttpPut("{id}")]
-    public IActionResult Update(int id, Class model)
+    public IActionResult Update(int id, CreateClassDto model)
     {
       var _class = _context.Classes
         .Include(c => c.lst_student)
