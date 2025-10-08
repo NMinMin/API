@@ -20,11 +20,6 @@ E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\API.MvcApplicationPartsAssemblyInfo.cache
 E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\API.sourcelink.json
 E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\staticwebassets.build.json
 E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\staticwebassets.development.json
-E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\staticwebassets\msbuild.API.Microsoft.AspNetCore.StaticWebAssets.props
-E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\staticwebassets\msbuild.build.API.props
-E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.API.props
-E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.API.props
-E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\staticwebassets.pack.json
 E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\scopedcss\bundle\API.styles.css
 E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\API.csproj.Up2Date
 E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\API.dll
@@ -140,3 +135,10 @@ E:\BackEnd\API\obj\Debug\net8.0\refint\API.dll
 E:\BackEnd\API\obj\Debug\net8.0\API.pdb
 E:\BackEnd\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 E:\BackEnd\API\obj\Debug\net8.0\ref\API.dll
+E:\VoNhacPhuoc_BE\API\bin\Debug\net8.0\API.staticwebassets.endpoints.json
+E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\rpswa.dswa.cache.json
+E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\rjimswa.dswa.cache.json
+E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\staticwebassets.build.json.cache
+E:\VoNhacPhuoc_BE\API\obj\Debug\net8.0\staticwebassets.build.endpoints.json
