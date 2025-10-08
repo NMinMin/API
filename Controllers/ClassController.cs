@@ -101,7 +101,7 @@ namespace API.Controllers
         }
       }
       _context.SaveChanges();
-      return NoContent();
+      return Ok(new { message = "Cập nhật thành công" });
     }
 
     [HttpDelete("{id}")]
@@ -115,7 +115,7 @@ namespace API.Controllers
 
       _context.Classes.Remove(_class);
       _context.SaveChanges();
-      return NoContent();
+      return Ok(new { message = "Xóa thành công" });
     }
   }
 }

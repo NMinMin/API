@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.SignalR;
 
@@ -9,6 +10,7 @@ namespace API.Models
 
         public string? name { get; set; }
 
+        [DataType(DataType.Date)]
         public DateTime dateofbirth { get; set; }
 
         public int class_id { get; set; }
