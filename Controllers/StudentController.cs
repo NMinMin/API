@@ -84,7 +84,6 @@ namespace API.Controllers
         model.class_id = student.class_id; //giữ nguyên class_id cũ
       else //nếu class_id thay đổi và class_id mới hợp lệ
         student.class_id = model.class_id; //cập nhật class_id mới
-                                           // Cập nhật dateofbirth nếu người dùng có nhập giá trị
       if (model.dateofbirth == DateTime.MinValue)//nếu dateofbirth thay đổi và dateofbirth mới không hợp lệ
         model.dateofbirth = student.dateofbirth;//giữ nguyên dateofbirth cũ
       student.name = model.name;
