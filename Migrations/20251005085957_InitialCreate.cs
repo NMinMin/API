@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -29,7 +30,7 @@ namespace API.Migrations
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    dateofbirth = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    dateofbirth = table.Column<DateTime>(type: "date", nullable: false),
                     class_id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -47,10 +48,38 @@ namespace API.Migrations
                 name: "IX_Students_class_id",
                 table: "Students",
                 column: "class_id");
+
+            migrationBuilder.Sql(@"
+                ALTER TABLE Students
+                ADD CONSTRAINT CHK_Student_DateOfBirth CHECK (YEAR(dateofbirth) < YEAR(GETDATE()))");
+
+            migrationBuilder.Sql(@"
+                CREATE TRIGGER TRG_ResetIdStudent
+                ON Students
+                AFTER DELETE
+                AS
+                BEGIN
+                    IF NOT EXISTS (SELECT 1 FROM Students)
+                        DBCC CHECKIDENT ('Students', RESEED, 0);
+                END
+            ");
+
+            migrationBuilder.Sql(@"
+                CREATE TRIGGER TRG_ResetIdClass
+                ON Classes
+                AFTER DELETE
+                AS
+                BEGIN
+                    IF NOT EXISTS (SELECT 1 FROM Classes)
+                        DBCC CHECKIDENT ('Classes', RESEED, 0);
+                END
+            ");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.Sql("DROP TRIGGER IF EXISTS TRG_ResetStudentId");
+            migrationBuilder.Sql("DROP TRIGGER IF EXISTS TRG_ResetClassId");
             migrationBuilder.DropTable(
                 name: "Students");
 

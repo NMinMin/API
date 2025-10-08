@@ -45,7 +45,7 @@ namespace API.Controllers
     }
 
     [HttpPost]
-    public IActionResult Create(StudentModel model)
+    public IActionResult Create(CreateStudentDto model)
     {
       var student = _mapper.Map<Student>(model);//Sử dụng AutoMapper để map từ model sang Student
 
