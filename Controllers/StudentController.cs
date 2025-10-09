@@ -97,18 +97,18 @@ namespace API.Controllers
       return Ok(new { message = "Cập nhật thành công" });
     }
 
-    // [HttpDelete("{id}")]
-    // public IActionResult Delete(int id)
-    // {
-    //   var user = _context.Students.Find(id);
-    //   if (user == null)
-    //   {
-    //     return NotFound();
-    //   }
+    [HttpDelete("{id}")]
+    public IActionResult Delete(int id)
+    {
+      var user = _context.Students.Find(id);
+      if (user == null)
+      {
+        return NotFound();
+      }
 
-    //   _context.Students.Remove(user);
-    //   _context.SaveChanges();
-    //   return Ok(new { message = "Xóa thành công" });
-    // }
+      _context.Students.Remove(user);
+      _context.SaveChanges();
+      return Ok(new { message = "Xóa thành công" });
+    }
   }
 }
