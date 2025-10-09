@@ -73,7 +73,7 @@ namespace API.Controllers
     }
 
     [HttpPut("{id}")]
-    public IActionResult Update(int id, CreateStudentDto model)
+    public IActionResult Update(int id, PutStudentDto model)
     {
       var student = _context.Students.Find(id);
       if (student == null)
@@ -86,8 +86,12 @@ namespace API.Controllers
         student.class_id = model.class_id; //cập nhật class_id mới
       if (model.dateofbirth == DateTime.MinValue)//nếu dateofbirth thay đổi và dateofbirth mới không hợp lệ
         model.dateofbirth = student.dateofbirth;//giữ nguyên dateofbirth cũ
-      student.name = model.name;
-      student.dateofbirth = model.dateofbirth;
+      else //nếu dateofbirth thay đổi và dateofbirth mới hợp lệ
+        student.dateofbirth = model.dateofbirth;
+      if (model.name == null || string.IsNullOrEmpty(model.name) || string.IsNullOrWhiteSpace(model.name)) //nếu name thay đổi và name mới không hợp lệ
+        model.name = student.name; //giữ nguyên name cũ
+      else //nếu name thay đổi và name mới hợp lệ
+        student.name = model.name;
 
       _context.SaveChanges();
       return Ok(new { message = "Cập nhật thành công" });
