@@ -82,7 +82,7 @@ namespace API.Controllers
     }
 
     [HttpPut("{id}")]
-    public IActionResult Update(int id, CreateClassDto model)
+    public IActionResult Update(int id, Class model)
     {
       var _class = _context.Classes
         .Include(c => c.lst_student)
@@ -117,5 +117,5 @@ namespace API.Controllers
       _context.SaveChanges();
       return Ok(new { message = "Xóa thành công" });
     }
-   }
+  }
 }
