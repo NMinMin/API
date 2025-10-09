@@ -81,41 +81,41 @@ namespace API.Controllers
       return Ok(result);
     }
 
-  //   [HttpPut("{id}")]
-  //   public IActionResult Update(int id, CreateClassDto model)
-  //   {
-  //     var _class = _context.Classes
-  //       .Include(c => c.lst_student)
-  //       .SingleOrDefault(c => c.id == id);
-  //     if (_class == null)
-  //     {
-  //       return NotFound();
-  //     }
-  //     _class.name = model.name;
-  //     if (model.lst_student != null && model.lst_student.Count > 0)
-  //     {
-  //       _class.lst_student.Clear();//Xóa danh sách sinh viên hiện tại của classdto
-  //       foreach (var student in model.lst_student)
-  //       {
-  //         _class.lst_student.Add(student);//Thêm danh sách sinh viên mới từ model vào classdto
-  //       }
-  //     }
-  //     _context.SaveChanges();
-  //     return Ok(new { message = "Cập nhật thành công" });
-  //   }
+    [HttpPut("{id}")]
+    public IActionResult Update(int id, Class model)
+    {
+      var _class = _context.Classes
+        .Include(c => c.lst_student)
+        .SingleOrDefault(c => c.id == id);
+      if (_class == null)
+      {
+        return NotFound();
+      }
+      _class.name = model.name;
+      if (model.lst_student != null && model.lst_student.Count > 0)
+      {
+        _class.lst_student.Clear();//Xóa danh sách sinh viên hiện tại của classdto
+        foreach (var student in model.lst_student)
+        {
+          _class.lst_student.Add(student);//Thêm danh sách sinh viên mới từ model vào classdto
+        }
+      }
+      _context.SaveChanges();
+      return Ok(new { message = "Cập nhật thành công" });
+    }
 
-  //   [HttpDelete("{id}")]
-  //   public IActionResult Delete(int id)
-  //   {
-  //     var _class = _context.Classes.Find(id);
-  //     if (_class == null)
-  //     {
-  //       return NotFound();
-  //     }
+    [HttpDelete("{id}")]
+    public IActionResult Delete(int id)
+    {
+      var _class = _context.Classes.Find(id);
+      if (_class == null)
+      {
+        return NotFound();
+      }
 
-  //     _context.Classes.Remove(_class);
-  //     _context.SaveChanges();
-  //     return Ok(new { message = "Xóa thành công" });
-  //   }
-   }
+      _context.Classes.Remove(_class);
+      _context.SaveChanges();
+      return Ok(new { message = "Xóa thành công" });
+    }
+  }
 }
