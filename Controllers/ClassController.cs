@@ -10,7 +10,6 @@ namespace API.Controllers
 {
   [ApiController]
   [Route("api/[controller]")]
-  //api/hello
   public class ClassController : ControllerBase
   {
     private readonly AppDbContext _context;
@@ -22,29 +21,37 @@ namespace API.Controllers
     }
 
     [HttpGet]
-    public IActionResult GetAll(int pageNumber = 1, int pageSize = 10)
+    public IActionResult GetAll(string pageNumber="1", string pageSize = "10")
     {
-      if (pageNumber <= 0)
+      int number, size;
+      if (int.TryParse(pageNumber, out number) && int.TryParse(pageSize, out size))
       {
-        pageNumber = 1;
+        if (number <= 0 || number > 100)
+        {
+          number = 1;
+        }
+        if (size <= 0|| size > 100)
+        {
+          size = 10;
+        }
+        var query = _context.Classes
+         .Include(c => c.lst_student) //Lấy danh sách sinh viên của mỗi lớp
+         .AsQueryable();//Tạo truy vấn IQueryable để có thể áp dụng phân trang
+
+        var totalItems = query.Count();//tổng số class
+        var totalPages = (int)Math.Ceiling(totalItems / (double)size);//tổng số trang
+
+        var classes = query
+            .Skip((number - 1) * size)//bỏ qua các phần tử của các trang trước
+            .Take(size)//lấy số phần tử của trang hiện tại
+            .ToList();
+        var result = _mapper.Map<List<ClassDto>>(classes);//Sử dụng AutoMapper để map từ classes sang ClassDto
+        return Ok(result);
       }
-      if (pageSize <= 0)
+      else
       {
-        pageSize = 10;
+        return BadRequest("pageNumber và pageSize không hợp lệ.");
       }
-      var query = _context.Classes
-       .Include(c => c.lst_student) //Lấy danh sách sinh viên của mỗi lớp
-       .AsQueryable();
-
-      var totalItems = query.Count();//tổng số class
-      var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);//tổng số trang
-
-      var classes = query
-          .Skip((pageNumber - 1) * pageSize)//bỏ qua các phần tử của các trang trước
-          .Take(pageSize)//lấy số phần tử của trang hiện tại
-          .ToList();
-      var result = _mapper.Map<List<ClassDto>>(classes);//Sử dụng AutoMapper để map từ classes sang ClassDto
-      return Ok(result);
     }
 
     [HttpPost]
